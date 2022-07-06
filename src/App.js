@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
 // import Home from './component/index';
 // import Form from './component/Form';
 // import Header from './component/Header';
@@ -23,6 +24,14 @@ function App() {
      {/* <Directory /> */}
     </>
     );
+=======
+import Home from './component/Index'
+import Form from './component/Form'
+const google=window.google
+function App() {
+  return (
+    <Home />  );
+>>>>>>> 2518575132ecdb437f7af61a9dfafcc84ed9092e
 }
 
 export default App;
