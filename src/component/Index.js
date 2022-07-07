@@ -409,7 +409,7 @@ function Home() {
             <h1 className='center'>Career Advice and Tips</h1>
   <div className="row mt-5 ">
     <div className="col border py-2">
-    01 | <a href="https://www.youtube.com/watch?v=mDr1j6LnSqo&t=10s"  target="_blank">Video Interview Tips for Success </a> Jul 2021  </div>
+    01 | <Link to="/Tip1"  target="_blank">Video Interview Tips for Success </Link> Jul 2021  </div>
     <div className="col border py-2">
     02 | 5 Must-Read Books for Accountants Jun 2021
     </div>

@@ -6,7 +6,7 @@ import Footer from './component/Footer';
 import About from './component/About';
 import Headers from './component/Headers';
 // import Directory from './Search';
-// import Tip from './component/Tip1';
+import Tip from './component/Tip1';
 // import Userinfo from './component/Userinfo'; 
 // import UpdateInfo from './component/updateInfo'; 
 // import Apply from './component/Apply';
@@ -23,7 +23,7 @@ function App() {
        <Route exact path='/'  element={< Home />}></Route> 
         <Route  path='/About' element={< About />}></Route>
        <Route  path='/Contact' element={< Contact />}></Route>
-      {/* <Route  path='/Tip' element={< Tip />}></Route>*/}
+      <Route  path='/Tip' element={< Tip />}></Route>
       <Route  path='/Joblist' element={< Joblist />}></Route> 
        {/* <Route  path='/About' element={< About />}></Route>
        <Route  path='/Contact' element={< Contact />}></Route>  */}
