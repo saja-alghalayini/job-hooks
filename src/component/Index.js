@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import {Routes, BrowserRouter,  Route, Link } from 'react-router-dom';
-// import { Container, Nav, Navbar } from 'react-bootstrap';
-import Headers from './Headers';
+import { Link } from 'react-router-dom';
 import '../css/index.css';
-import Joblist from './Job_listing';
-// import Tip1 from './Tip1';
-// import Login from './Login';
+
+
 
 function Home() {
     const [cate, setCateg] = useState([]);
@@ -22,16 +19,7 @@ function Home() {
     
     return ( 
             <>
-            <div>
-             {/*<Routes>
-           <Route path='/Tip'   element={< Tip1 />}></Route>  */}
-           {/* <Route path='/Login' element={< Login />}></Route>  
-           </Routes> */}
-            {/* <Headers/> */}
 
-
-
-            </div>
     <main>
 
         {/* slider Area Start*/}
@@ -138,15 +126,11 @@ function Home() {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="browse-btn2 text-center mt-50">
-                            {/* <BrowserRouter>
-                            <Nav.Item> */}
-                            {/* <Nav.Link href="/Joblist" eventKey="link-1" className="border-btn2">Browse All Sectors</Nav.Link> */}
-                            {/* </Nav.Item> */}
+                           
+                             <Link to="/Joblist" eventKey="link-1" className="border-btn2">Browse All Sectors</Link> 
+                            
                             {/* <a href="job_listing.html" className="border-btn2">Browse All Sectors</a> */}
-                            {/* </BrowserRouter> */}
-                            {/* <Routes> */}
-                            {/* <Route  path='/Joblist' element={< Joblist />}></Route> */}
-                            {/* </Routes> */}
+                            
                         </div>
                     </div>
                 </div>
@@ -162,7 +146,8 @@ function Home() {
                             <p className="pera1">FEATURED TOURS Packages</p>
                             <p className="pera2"> Make a Difference with Your Online Resume!</p>
                             {/* <BrowserRouter> */}
-                            {/* <Link herf="./Apply.js" className="border-btn2 border-btn4">Upload your cv</Link> */}
+                                
+                            <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4"  onClick={''}>Upload your cv</Link>
                             {/* </BrowserRouter> */}
                         </div>
                     </div>
