@@ -1,59 +1,67 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import "../css/Userinfo.css";
-
-
+import "../css/userinfo.css";
 
 
 function Userinfo() {
-    const Background = "https://d341ezm4iqaae0.cloudfront.net/indeedjobs/wp-content/uploads/2020/12/hero-home.svg";
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        getUsers();
-    }, []);
-    function getUsers() {
-        axios.get('http:/localhost:8000/php/showUserInfo.php?id='+id).then(function(response) {
-            console.log(response.data);
-            setUsers(response.data);
-        });
-    }
+    const [user, setUsers] = useState([]);
+    useEffect(()=>{
+     axios.get(`http://localhost/job_hooks/API/showUserInfo.php`)
+     .then((res)=>{
+     console.log(res)
+     const data=res.data;
+     setUsers(data);
+      
+     });
+    
+    })
+  
    
     return (
         <>
             <div style={{ padding: "40px", backgroundColor: '#4c5595', textAlign: "center" }}>
                 <h1 style={{ color: 'white' }}>Your Profile</h1>
             </div>
-            <div class="center">
-    <div class="container">
-      <div class="left">
-        <div class="photo">
-          <div class="circle"></div>   
-          <div class="circle2"></div> 
+            {user.map((data)=>
+
+<>
+            <div className="center">
+    <div className="container">
+      <div className="left">
+        <div className="photo">
+          <div className="circle"></div>   
+          <div className="circle2"></div> 
           <img alt="user photo" src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651_640.png" />
         </div>     
-        <div class="title__contain">
-          <div class="username">{users.first_name + last_name}</div>
+          <div className="title__contain">
+
+      
+
+
+            
+          <div className="username">{data.first_name + ' ' + data.last_name}</div>
         </div>
-        <button class="update">update info</button> 
+        <button className="update">update info</button> 
       </div>
-      <div class="right">
-        <div class="rightbox">
-          <span class="large">Email</span>
-          <span class="small">{users.email}</span>
+      <div className="right">
+        <div className="rightbox">
+          <span className="large">Email</span>
+          <span className="small">{data.email}</span>
         </div>
-        <div class="rightbox">
-          <span class="large">Phone</span>
-          <span class="small">{users.phone_number}</span>
+        <div className="rightbox">
+          <span className="large">Phone</span>
+          <span className="small">{data.phone_number}</span>
         </div>
-        <div class="rightbox">
-          <span class="large">Password</span>
-          <span class="small">{users.password}</span>
+        <div className="rightbox">
+          <span className="large">Password</span>
+          <span className="small">{data.password}</span>
         </div>
       </div>
     </div>
-  </div>
-        </>
+    </div>
+    </>
+        )}
+    </>
     );
 }
 export default Userinfo;

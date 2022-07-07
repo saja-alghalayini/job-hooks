@@ -2,11 +2,14 @@
 include_once "./connection.php";
 
 $id = $_REQUEST['id'];
-$first_name = $_REQUEST["first_name"];
+$first = $_REQUEST["firstName"];
+$last = $_REQUEST["lastName"];
 $email= $_REQUEST["email"];
 $password= $_REQUEST["password"];
+$phone= $_REQUEST["phone"];
 
-$sql="UPDATE users SET name='$name', email='$email', password='$password' WHERE id='$id' ";
+$sql="UPDATE user SET first_name='$first',last_name='$last', email='$email', password='$password',phone_number='$phone' WHERE id='$id';";
 
 mysqli_query($con,$sql);
 ?>
+

@@ -1,18 +1,19 @@
 <?php
-require_once './connection.php';
+include_once 'connection.php';
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-header('Access-Control-Request-Headers: x-requested-with');
 
-$sql="SELECT * From user";
-$sql=mysqli_query($conn, $sql);
 
-while($row= mysqli_fetch_assoc($sql))
-{
-    $jsonData[]= $row;
+$sql="SELECT * from user";
+
+$result=mysqli_query($con,$sql);
+
+if(!$result){
+    http_response_code(404);
+    die(mysqli_error($con));
 }
-
-echo json_encode(['res'=>$jsonData]);
-
+echo "[";
+for($i=0;$i<mysqli_num_rows($result);$i++){
+  echo($i>0?',':'').json_encode(mysqli_fetch_object($result));
+}
+echo "]";
 ?>

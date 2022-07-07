@@ -1,72 +1,55 @@
 import React, { useState } from 'react';
-// import Header from "../components/layout/Header";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from "axios";
 import "../css/update.css";
-
+// localhost/job_hooks/API/updateUserInfo.php?id=1&firstName=aa&lastName=bb&email=aa@mail.com&password=asdfg&phone=0771020304
 function UpdateInfo() {
-    const Background = "https://d341ezm4iqaae0.cloudfront.net/indeedjobs/wp-content/uploads/2020/12/hero-home.svg";
+    // state = {
+    //         id:'',
+    //         firstName: '',
+    //         lastName: '',
+    //         email: '';
+    //         password:'';
+    //         phone:'';
+    //       }
+
+    const  Update = ()=>{
+    axios.get("localhost/job_hooks/API/updateUserInfo.php?id=1&firstName=?&lastName=?&email=?&password=?phone=")    
+        }
+
     return (
         <>
             <div style={{ padding: "40px", backgroundColor: '#4c5595', textAlign: "center" }}>
-                <h1 style={{ color: 'white' }}>Edit Profile</h1>
+                <h1 style={{ color: 'white' }}>Update Your Profile</h1>
             </div>
 
-        
+                            <div className='databox'>
+                                <form onSubmit={this.Update}>
 
-            <div className="c2 m-auto w-50 mt-5">
-                <div className="cHead">
-                    <h5  className='label c2'>Update Your Profile Information:</h5>
-                </div><br />
-               
-                <div className="c2 ">
-                    <div>
-                        <div style={{}}>
                             <span className='d1'>
                                 <label htmlFor="" className='label2'>First Name</label>
-                                <input type="text" className='inp' />
+                                <input type="text" className='inp' name='firstName'   />
                             </span><br />
                             <span className='d1'>
                                 <label htmlFor="" className='label2'>Last Name</label>
-                                <input type="text" className='inp' />
+                                <input type="text" className='inp' name='lastName'   />
                             </span><br />
                             <span className='d1'>
                                 <label htmlFor="" className='label2'>Email<span className='red'>*</span></label>
-                                <input type="text" className='inp' />
+                                <input type="text" className='inp' name='email'   />
                             </span><br />
                             <span className='d1'>
-                                <label htmlFor="" className='label2'>:phone number<span className='red'>*</span></label>
-                                <input type="text" className='inp' />
+                                <label htmlFor="" className='label2'>Phone number<span className='red'>*</span></label>
+                                <input type="text" className='inp' name='phone'   />
                             </span><br />
                             <span className='d1'>
                                 <label htmlFor="" className='label2'>Password<span className='red'>*</span></label>
-                                <input type="text" className='inp' />
-                            
+                                <input type="text" className='inp' name='password'   /> 
                             </span><br />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div className="c2">
-                <div className="cHead">
-                    <h5 className='label'>Upload Resume/CV:</h5>
-                </div>
-                <div className="cBody">
-                    <label htmlFor="" className='label2'>Please upload your resume (Max size: 5 MB)<span className='red'>*</span></label>
-                    <div>
-                        <input type="file" id="file2" />
-                        <label htmlFor="file2" className='file'>Chose a file</label>
-                    </div>
-                </div>
-            </div>
-
-           
-
-
-            <div style={{ width: "60%", margin: "auto" }}>
-                <button className='butt c2'>Submit</button>
-            </div>
+                                <div style={{ width: "60%", marginLeft: "2%" }}>
+                                   <button className='butt c2'>Submit</button>
+                                </div>
+                                </form>
+</div>
         </>
     );
 }

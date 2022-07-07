@@ -1,6 +1,6 @@
 import React from 'react';
-import {Routes, BrowserRouter,  Route, Link } from 'react-router-dom';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import {Routes, BrowserRouter,  Route} from 'react-router-dom';
+import  Nav  from 'react-bootstrap/nav';
 import Home from './index';
 import Joblist from './Job_listing';
 import About from './About';
