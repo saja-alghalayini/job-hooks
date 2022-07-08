@@ -32,10 +32,6 @@ function Home() {
      });
     })
 
-    // onClick=>{
-    //     if(is_login=='1'){
-    //     }
-    // }
     
     return ( 
             <>
@@ -165,13 +161,15 @@ function Home() {
                         <div className="cv-caption text-center">
                           <p className="pera1">FEATURED TOURS Packages</p>
                           <p className="pera2"> Make a Difference with Your Online Resume!</p>
-                          {/* <BrowserRouter> */}
-                          {Login &&  
-                          <Link to="/Login" eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
+
+                                        {/* user login ??? */}
+                          {!Login &&   <Link to="/Login" eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
                           }
 
-                          <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4" name="applyCV" onClick={''}>Upload your cv</Link>
-                          {/* </BrowserRouter> */}
+                          {Login && <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4" name="applyCV" onClick={''}>Upload your cv</Link>}
+                          {/* user login ??? */}
+
+
                         </div>
                     </div>
                 </div>
