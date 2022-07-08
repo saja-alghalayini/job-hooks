@@ -6,16 +6,36 @@ import '../css/index.css';
 
 
 function Home() {
-    const [cate, setCateg] = useState([]);
+
+    const [user, setUsers] = useState([]);
+    const [Login, setLogin] = useState(false);
+
     useEffect(()=>{
-     axios.get(`http://localhost/job_hooks/API/showcat.php`)
+     axios.get(`http://localhost/job_hooks/API/loginuser.php`)
      .then((res)=>{
-     console.log(res)
+         const data=res.data;
+         setLogin(data[0].isLogin);
+        console.log(Login)                 
+         });
+
+     axios.get(`http://localhost/job_hooks/API/showUserInfo.php`)
+
+     .then((res)=>{
+    //  console.log(res)
      const data=res.data;
-     setCateg(data);
+     setUsers(data);
+     
+    //  this.setState({
+    //     is_login:false,
+    //   })
       
      });
-})
+    })
+
+    // onClick=>{
+    //     if(is_login=='1'){
+    //     }
+    // }
     
     return ( 
             <>
@@ -41,14 +61,14 @@ function Home() {
                             <div className="col-xl-8">
 
                                 {/* form */}
-                                <form action="#" className="search-box">
-                                    <div className="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword" />
-                                    </div>
+                                 {/* <form action="#" className="search-box"> */}
+                                  {/*  <div className="input-form">
+                                        <input type="text" placeholder="Job Tittle or keyword" /> 
+                                    </div>*/}
                                     <div className="search-form">
-                                        <a href="#">Find job</a>
+                                        <Link to="/Joblist" eventKey="link-1" className="border-btn2 find" >Find job Now</Link>
                                     </div>	
-                                </form>	
+                                {/* </form>	 */}
                             </div>
                         </div>
                     </div>
@@ -64,7 +84,7 @@ function Home() {
                     <div className="col-lg-12">
                         <div className="section-tittle text-center">
                             {/* <span>FEATURED TOURS Packages</span> */}
-                            <h2> Top Services </h2>
+                            <h2> Top Categories </h2>
                         </div>
                     </div>
                 </div>
@@ -90,7 +110,7 @@ function Home() {
                             </div>
                             <div className="services-cap">
                                <h5>Translating </h5>
-                                <span>(658)</span>
+                                <span>(428)</span>
                             </div>
                         </div>
                     </div>
@@ -112,7 +132,7 @@ function Home() {
                             </div>
                             <div className="services-cap">
                                <h5>Information Technology</h5>
-                                <span>(658)</span>
+                                <span>(828)</span>
                             </div>
                         </div>
                     </div>
@@ -127,7 +147,7 @@ function Home() {
                     <div className="col-lg-12">
                         <div className="browse-btn2 text-center mt-50">
                            
-                             <Link to="/Joblist" eventKey="link-1" className="border-btn2">Browse All Sectors</Link> 
+                             <Link to="/Joblist" eventKey="link-1" className="border-btn2">Browse All </Link> 
                             
                             {/* <a href="job_listing.html" className="border-btn2">Browse All Sectors</a> */}
                             
@@ -138,17 +158,20 @@ function Home() {
         {/* </div> */}
         {/* Our Services End */}
         {/* Online CV Area Start */}
-         <div className="online-cv cv-bg section-overly pt-90 pb-120"  data-background="assets/img/gallery/cv_bg.jpg">
+         <div className="online-cv cv-bg section-overly pt-90 pb-120 mb-5"  data-background="assets/img/gallery/cv_bg.jpg">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-xl-10">
                         <div className="cv-caption text-center">
-                            <p className="pera1">FEATURED TOURS Packages</p>
-                            <p className="pera2"> Make a Difference with Your Online Resume!</p>
-                            {/* <BrowserRouter> */}
-                                
-                            <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4"  onClick={''}>Upload your cv</Link>
-                            {/* </BrowserRouter> */}
+                          <p className="pera1">FEATURED TOURS Packages</p>
+                          <p className="pera2"> Make a Difference with Your Online Resume!</p>
+                          {/* <BrowserRouter> */}
+                          {Login &&  
+                          <Link to="/Login" eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
+                          }
+
+                          <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4" name="applyCV" onClick={''}>Upload your cv</Link>
+                          {/* </BrowserRouter> */}
                         </div>
                     </div>
                 </div>
@@ -156,14 +179,15 @@ function Home() {
         </div>
         {/* Online CV Area End*/}
         {/* Featured_job_start */}
-        <section className="featured-job-area feature-padding">
+        <section className="featured-job-area mt-5">
             <div className="container">
                 {/* Section Tittle */}
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="section-tittle text-center">
-                            <span>Recent Job</span>
-                            <h2>Featured Jobs</h2>
+                            {/* <span>Recent Job</span> */}
+                            <h2 className="mb-0">Future  Jobs</h2>
+                            <span>The top professions of the future that are already trending!</span>
                         </div>
                     </div>
                 </div>
@@ -173,82 +197,56 @@ function Home() {
                         <div className="single-job-items mb-30">
                             <div className="job-items">
                                 <div className="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list1.png" alt="" /></a>
+                                    <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/Top_9_Cybersecurity_Tools.jpg" alt="" className="f-job"/>
                                 </div>
                                 <div className="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
+                                <Link to="/CS" eventKey="link-10"><h4>Cyber security</h4></Link>
                                     <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i className="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
+                                        <li>Computer Information</li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
+                                <span >Full Time</span>
                             </div>
                         </div>
                         {/* single-job-content */}
                         <div className="single-job-items mb-30">
                             <div className="job-items">
                                 <div className="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list2.png" alt="" /></a>
+                                    <img src="https://elearningindustry.com/wp-content/uploads/2021/02/why-online-teaching-is-replacing-offline-classes.png" alt="" className="f-job"/>
                                 </div>
                                 <div className="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
+                                    <h4>Online teacher</h4>
                                     <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i className="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
+                                        <li>Teaching - Coaching</li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
+                            <span >Online</span>
+
                             </div>
                         </div>
                          {/* single-job-content */}
                         <div className="single-job-items mb-30">
                             <div className="job-items">
                                 <div className="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list3.png" alt="" /></a>
+                                   <img src="https://careeralley.com/wp-content/uploads/Blah-4.png" alt="" className="f-job"/>
                                 </div>
                                 <div className="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
+                                <Link to="/HE" eventKey="link-20"><h4>Hospital engineer</h4></Link>
                                     <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i className="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
+                                        <li>Hospital and Healthcare</li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
+                             <span >Full Time</span>
                             </div>
                         </div>
-                         {/* single-job-content */}
-                        <div className="single-job-items mb-30">
-                            <div className="job-items">
-                                <div className="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list4.png" alt="" /></a>
-                                </div>
-                                <div className="job-tittle">
-                                    <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                                    <ul>
-                                        <li>Creative Agency</li>
-                                        <li><i className="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                        <li>$3500 - $4000</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="items-link f-right">
-                                <a href="job_details.html">Full Time</a>
-                                <span>7 hours ago</span>
-                            </div>
-                        </div>
+
+                        
                     </div>
                 </div>
             </div>
@@ -266,8 +264,7 @@ function Home() {
                 </div>
                 {/* Apply Process Caption */}
                 <div className="row">
-                            <h3>Apply process</h3>
-                            <h2> How it works</h2>
+                            <h3 className="cent">Apply process<br/> How it works</h3>
                     <div className="col-lg-4 col-md-6">
                         <div className="single-process text-center mb-30">
                             <div className="process-ion">
@@ -306,8 +303,9 @@ function Home() {
         </div>
         {/* How  Apply Process End*/}
         {/* Testimonial Start */}
-        <div className="testimonial-area testimonial-padding">
-            <div className="container">
+            <h2 className="cent mb-5">Our Client Reviews</h2>
+        <div className="testimonial-area padding">
+            <div className="container mb-5">
                 {/* Testimonial contents */}
                 <div className="row d-flex justify-content-center">
                     <div className="col-xl-8 col-lg-8 col-md-10">
@@ -318,7 +316,7 @@ function Home() {
                                 <div className="testimonial-caption ">
                                     {/* founder */}
                                     <div className="testimonial-founder  ">
-                                        <div className="founder-img mb-30">
+                                        <div className="founder-img mb-10">
                                             <img src="https://avatars.githubusercontent.com/u/100213753?v=4" className="userimg" alt="" />
                                             <span>Dua-Alsafasfeh</span>
                                             <p>Communication Engineering</p>
@@ -330,12 +328,12 @@ function Home() {
                                 </div>
                             </div>
                             {/* Single Testimonial */}
-                            <div className="single-testimonial text-center mb-5 ">
+                            <div className="single-testimonial text-center ">
                                 {/* Testimonial Content */}
                                 <div className="testimonial-caption ">
                                     {/* founder */}
                                     <div className="testimonial-founder  ">
-                                        <div className="founder-img mb-30">
+                                        <div className="founder-img mb-10">
                                             <img src="https://avatars.githubusercontent.com/u/100212231?v=4" className="userimg" alt="" />
                                             <span>Anas Allawafeh</span>
                                             <p>Communication Engineering</p>
@@ -352,7 +350,7 @@ function Home() {
                                 <div className="testimonial-caption ">
                                     {/* founder */}
                                     <div className="testimonial-founder  ">
-                                        <div className="founder-img mb-30">
+                                        <div className="founder-img mb-10">
                                             <img src="https://avatars.githubusercontent.com/u/62554357?v=4" className="userimg" alt="" />
                                             <span>Obada_alshafeey</span>
                                             <p>Web Devloper</p>
@@ -366,11 +364,14 @@ function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><br/><br/><br/><br/>
+
+
+
         </div>
         {/* Testimonial End */}
          {/* Support Company Start*/}
-         <div className="support-company-area support-padding fix mb-5">
+         <div className="support-company-area support-padding fix mb-5 mt-5">
             <div className="container mb-5">
                 <div className="row align-items-center">
                     <div className="col-xl-6 col-lg-6">
@@ -390,28 +391,21 @@ function Home() {
                     </div>
                     <div className="col-xl-6 col-lg-6">
                         <div className="support-location-img">
-                            <img src="assets/img/service/support-img.jpg" alt="" />
-                            {/* <div className="support-img-cap text-center">
-                                <p>Since</p>
-                                <span>1994</span>
-                            </div> */}
+                            <img src="https://imageio.forbes.com/specials-images/imageserve/5fce71245c7f26c56e89bbd5/0x0.jpg?format=jpg&width=1200" alt="" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
    
-
-
-
         <div className='App mt-5 '>
               <div className="container mt-5 mb-5">
             <h1 className='center'>Career Advice and Tips</h1>
   <div className="row mt-5 ">
     <div className="col border py-2">
-    01 | <Link to="/Tip1"  target="_blank">Video Interview Tips for Success </Link> Jul 2021  </div>
+    01 | <Link to="/Tip"  target="_blank">Interview Tips for Success </Link> Jul 2021  </div>
     <div className="col border py-2">
-    02 | 5 Must-Read Books for Accountants Jun 2021
+    02 | <Link to="/Tip2"  target="_blank">5 Must-Read Books for Accountants</Link> Jun 2021
     </div>
   </div>
   <div className="row ">

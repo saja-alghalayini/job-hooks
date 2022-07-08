@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import "../css/userinfo.css";
 
 
@@ -15,8 +16,7 @@ function Userinfo() {
      });
     
     })
-  
-   
+    
     return (
         <>
             <div style={{ padding: "40px", backgroundColor: '#4c5595', textAlign: "center" }}>
@@ -25,8 +25,8 @@ function Userinfo() {
             {user.map((data)=>
 
 <>
-            <div className="center">
-    <div className="container">
+            <div className="centeruser">
+    <div className="containerUser">
       <div className="left">
         <div className="photo">
           <div className="circle"></div>   
@@ -41,7 +41,7 @@ function Userinfo() {
             
           <div className="username">{data.first_name + ' ' + data.last_name}</div>
         </div>
-        <button className="update">update info</button> 
+        <Link to="/updateInfo" className="updateinfo">&emsp; Update info</Link> 
       </div>
       <div className="right">
         <div className="rightbox">

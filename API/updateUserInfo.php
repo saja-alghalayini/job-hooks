@@ -1,7 +1,7 @@
 <?php
 include_once "./connection.php";
 
-$id = $_REQUEST['id'];
+$id = $_REQUEST['id'];    // whrer id 
 $first = $_REQUEST["firstName"];
 $last = $_REQUEST["lastName"];
 $email= $_REQUEST["email"];

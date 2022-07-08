@@ -40,6 +40,8 @@ function Headers() {
       {/* </Item> */}
       {/* <Item> */}
         <Link to="/Contact" eventKey="link-3" className='linkto'> Contact Us</Link>
+        <Link to="/Userinfo" eventKey="link-4" className='linkto'> Profail</Link>
+
       {/* </Item> */}
     {/* </Nav> */}
                                                   {/* <Routes> */}

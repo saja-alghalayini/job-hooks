@@ -2,7 +2,7 @@ import React from 'react';
 import  'react-bootstrap';
 
 
-function Tip1() {
+function Tip() {
     return( 
 
 <>
@@ -55,7 +55,7 @@ Interview questions about your race, age, gender, religion, marital status, and 
 }
 
 
-export default Tip1;
+export default Tip;
 
 
 
