@@ -5,7 +5,6 @@ import Home from './component/index';
 import Footer from './component/Footer';
 import About from './component/About';
 import Headers from './component/Headers';
-// import Directory from './Search';
 import Tip from './component/Tip';
 import Tip2 from './component/Tip2';
 import Userinfo from './component/Userinfo'; 
@@ -16,16 +15,16 @@ import Contact from './component/Contact';
 import Details from './component/Job_details';
 import CS from './component/cs';
 import HE from './component/he';
-
-
+import Register from './component/Register';
+import Login from './component/Login';
 
 function App() {
   return (
     <>
-          {/* <Route  path='/Register'  element={< Register />}></Route> 
-       <Route  path='/Login' element={< Login />}></Route> */}
         <BrowserRouter>
+
         <Headers />
+
         <Routes>
           <Route exact path='/' element={< Home />}></Route>
           <Route path='/About' element={< About />}></Route>
@@ -37,20 +36,14 @@ function App() {
           <Route path='/Job_details' element={< Details />}></Route>
           <Route path='/CS' element={< CS />}></Route>
           <Route path='/HE' element={< HE />}></Route> 
-           <Route  path='/Userinfo' element={< Userinfo />}></Route> 
-       <Route  path='/updateInfo' element={< UpdateInfo />}></Route>  
+          <Route  path='/Userinfo' element={< Userinfo />}></Route> 
+          <Route  path='/updateInfo' element={< UpdateInfo />}></Route>  
+          <Route  path='/Register'  element={< Register />}></Route> 
+          <Route  path='/Login' element={< Login />}></Route>
          </Routes>
+
       </BrowserRouter>  
-      {/* <Headers /> */}
-      {/* <Tip/> */}
-      {/* <Home/> */}
-      {/* <Apply/> */}
-      {/* <UpdateInfo/>  */}
-      {/* <Userinfo /> */}
-      {/* <Footer />   */}
-      {/* <Directory /> */}
-      {/* <Contact/> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

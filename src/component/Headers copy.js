@@ -41,26 +41,28 @@ function Headers() {
                                                    <Link to="/login">Login</Link> */}
                                                       {/* <Router>
                                                  </Router> */}
-                                                    <Routes>
+                                                    {/* <Routes>
                                                          <Route exact path='/'  element={< Home />}></Route> 
                                                          <Route  path='/About' element={< About />}></Route>
-                                                         <Route  path='/Contact' element={< Contact />}></Route> 
+                                                         <Route  path='/Contact' element={< Contact />}></Route>  */}
                                                          {/* <Route exact path='/regis'  element={< Register />}></Route> 
                                                          <Route  path='/login' element={< Login />}></Route>
                                                          <Route  path='/Contact' element={< Contact />}></Route>  */}
-                                                    </Routes>
+                                                    {/* </Routes> */}
 
                                                          {/* </Routes> */}
-                                                  </BrowserRouter>
                                              
+                                                  </BrowserRouter>
                                               </ul>
                                           </nav>
                                       </div> 
                                       {/* Header-btn */}
+                                      <BrowserRouter>
                                       <div className="header-btn d-none f-right d-lg-block">
                                           <a herf="#" className="btn head-btn1">Register</a>
                                           <a herf="#" className="btn head-btn2">Login</a>
                                       </div>
+                                      </BrowserRouter>
                                   </div>
                               </div>
                               {/* Mobile Menu */}

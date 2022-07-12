@@ -1,15 +1,11 @@
 import React from 'react';
 
 
-        
 function About() {
-         
-  return (
-  <>
-            {/* {/* Preloader Start  */} *
-   
-
-  
+  console.log("ABOUT");
+    return (
+        <>
+        
   <main>
     {/* Hero Area Start*/}
     <div className="slider-area ">
@@ -313,6 +309,7 @@ function About() {
     </div>
     {/* Blog Area End */}
   </main>
+
 
 </>
 

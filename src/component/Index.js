@@ -163,10 +163,10 @@ function Home() {
                           <p className="pera2"> Make a Difference with Your Online Resume!</p>
 
                                         {/* user login ??? */}
-                          {!Login &&   <Link to="/Login" eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
+                          {Login &&   <Link to="/Login" eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
                           }
 
-                          {Login && <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4" name="applyCV" onClick={''}>Upload your cv</Link>}
+                          {!Login && <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4" name="applyCV" onClick={''}>Upload your cv</Link>}
                           {/* user login ??? */}
 
 

@@ -4,10 +4,10 @@ function Form(){
         <>
 {/* 
    <div id="preloader-active">
-      <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-               <div class="preloader-circle"></div>
-               <div class="preloader-img pere-text">
+      <div className="preloader d-flex align-items-center justify-content-center">
+            <div className="preloader-inner position-relative">
+               <div className="preloader-circle"></div>
+               <div className="preloader-img pere-text">
                   <img src="assets/img/logo/logo.png" alt=""/>
                </div>
             </div>
@@ -184,7 +184,7 @@ function Form(){
                 Lily and 4 people like this
               </p>
               <div className="col-sm-4 text-center my-2 my-sm-0">
-                {/* <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> */}
+                {/* <p className="comment-count"><span className="align-middle"><i className="fa fa-comment"></i></span> 06 Comments</p> */}
               </div>
               <ul className="social-icons">
                 <li>

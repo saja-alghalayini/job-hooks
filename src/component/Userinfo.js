@@ -7,7 +7,7 @@ import "../css/userinfo.css";
 function Userinfo() {
     const [user, setUsers] = useState([]);
     useEffect(()=>{
-     axios.get(`http://localhost/job_hooks/API/showUserInfo.php`)
+     axios.get(`http://localhost/job_hooks/API/showUserInfo.php?id=1`)
      .then((res)=>{
      console.log(res)
      const data=res.data;
@@ -25,8 +25,8 @@ function Userinfo() {
             {user.map((data)=>
 
 <>
-            <div className="centeruser">
-    <div className="containerUser">
+            <div className="centeruser mb-5">
+    <div className="containerUser mb-5">
       <div className="left">
         <div className="photo">
           <div className="circle"></div>   
@@ -51,14 +51,14 @@ function Userinfo() {
         <div className="rightbox">
           <span className="large">Phone</span>
           <span className="small">{data.phone_number}</span>
-        </div>
+        </div><br/>
         <div className="rightbox">
           <span className="large">Password</span>
           <span className="small">{data.password}</span>
         </div>
       </div>
     </div>
-    </div>
+    </div><br/><br/><br/>
     </>
         )}
     </>

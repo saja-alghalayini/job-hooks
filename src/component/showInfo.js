@@ -9,12 +9,12 @@ function ListUser() {
         getUsers();
     }, []);
     function getUsers() {
-        axios.get('http://localhost:8888/api/users/').then(function(response) {
+        axios.post('localhost/API/showUserInfo.php').then(function(response) {
             console.log(response.data);
             setUsers(response.data);
         });
     }
-    }
+    
     return (
         <div>
             <h1>List Users</h1>
