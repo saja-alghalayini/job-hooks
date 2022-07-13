@@ -36,7 +36,7 @@ input[type="file"]{
     margin-right: 20px;
     margin-bottom: 2%;
 }
-
+a{text-decoration: none;}
 .butt{
     margin-top: 5px;
     margin-bottom: 20px;
@@ -58,3 +58,16 @@ input[type="file"]{
 }
 
 label{color: #000;}
+
+.message{
+    position: relative;
+    background-color: rgb(251, 36, 106);
+    z-index: 9999;
+    height: 100px;
+    
+}
+.message p{
+    color: white;
+    font-size: 30px;
+    padding-top: 30px;
+}

@@ -11,12 +11,11 @@ function Home() {
     const [Login, setLogin] = useState(false);
 
     useEffect(()=>{
-     
      axios.get(`http://localhost/job_hooks/API/loginuser.php`)
      .then((res)=>{
          const data=res.data;
          setLogin(data[0].isLogin);
-        // console.log(Login)                 
+        console.log(Login)                 
          });
 
      axios.get(`http://localhost/job_hooks/API/showUserInfo.php`)
@@ -31,7 +30,7 @@ function Home() {
     //   })
       
      });
-    },[user])
+    })
 
     
     return ( 
@@ -163,11 +162,12 @@ function Home() {
                           <p className="pera1">FEATURED TOURS Packages</p>
                           <p className="pera2"> Make a Difference with Your Online Resume!</p>
 
-             
-   <Link to= {sessionStorage.getItem("user_id")==0 ? "/Login" : "/Apply"}  eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
-  
+                                        {/* user login ??? */}
+                          {Login &&   <Link to="/Login" eventKey="link-1" className="border-btn2 border-btn4" name="loginCV"  onClick={''}>Upload your cv</Link>
+                          }
 
- 
+                          {!Login && <Link to="/Apply" eventKey="link-2" className="border-btn2 border-btn4" name="applyCV" onClick={''}>Upload your cv</Link>}
+                          {/* user login ??? */}
 
 
                         </div>
@@ -338,7 +338,7 @@ function Home() {
                                         </div>
                                     </div>
                                     <div className="testimonial-top-cap">
-                                        <p>“"I loved everything about job Hooks! This flexible, work from home job has already made my life better!"”</p>
+                                        <p>“I was able to get a job through you, you deserve more than a word of thanks. I was able to find many opportunities that fit my abilities and skills.”</p>
                                     </div>
                                 </div>
                             </div>

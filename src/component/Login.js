@@ -1,148 +1,113 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import axios from 'axios';
+import '../css/login.css';
 
+function Login(){
 
+    const [APIData, setAPIData] = useState([]);
+    useEffect(() => {
+      axios.get(`http://localhost/job_hooks/API/login.php`)
+          .then((response) => {
+              setAPIData(response.data);
+              // console.log(response.data,"res.data")
+          })
+  }, [])
 
-const regExp = RegExp(
-    /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
-)
+  const [pass, setpass] = useState('');
+  const [email, setEmail] = useState('');
+  const [id, setId] = useState('');
 
-const formValid = ({ isError, ...rest }) => {
-    let isValid = false;
+  const passHandel = (e)=>{setpass(e.target.value)}
+  const emailHandel = (e)=>{setEmail(e.target.value)}
+   
 
-    Object.values(isError).forEach(val => {
-        if (val.length > 0) {
-            isValid = false
-        } else {
-            isValid = true
-        }
-    });
+  const handelLog=(event)=>{
+    event.preventDefault();
 
-    Object.values(rest).forEach(val => {
-        if (val === null) {
-            isValid = false
-        } else {
-            isValid = true
-        }
-    });
-
-    return isValid;
-};
-
-
-export default class LoginForm extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-          
-            email: '',
-            password: '',
-            isError: {
-               
-                email: '',
-                password: ''
+    APIData.map((el)=>{
+        document.getElementById('e1').style.display="none";
+        document.getElementById('e2').style.display="none";
+        if(pass == el.password && email == el.email){
+            // console.log(el.id , 'roa');
+            // setId(el.id)
+            // console.log(el.id, 'bahaa');  
+            sessionStorage.setItem("user_id", el.id);
+            let ide= sessionStorage.getItem("user_id"); //// raghad here where i store data
+            console.log("heh"+ide);
+            // console.log("ftom input: " + pass, "ftom DB: " +el.password,"ftom input: " + email,"ftom DB: " +el.email);
+            // let id_user= el.id;
+            // localStorage.setItem('user', JSON.stringify(id_user)) 
+            // setUserId(el.id)
+            // setLogin(true)
+            // console.log(id_user);
+            window.location.href = "/";           
+           }else{
+               console.log("ftom input: " + pass, "ftom DB: " +el.password,"ftom input: " + email,"ftom DB: " +el.email);
+               document.getElementById('e1').style.display="block";
+               document.getElementById('e2').style.display="block";
             }
-        }
-    }
+         })
+   
+  }
 
-    componentDidMount(){
-        console.log('Hello Mount');
-        axios.post('http://localhost/job-hooks/API/view.php')
-.then((data) => {
-  console.log(data.data);
-})
-.catch((error) => {
-  console.error(error);
-});
+//   console.log(id,"before render" );
 
-
-    }
-
-    onSubmit = e => {
-        e.preventDefault();
-
-        if (formValid(this.state)) {
-            console.log(this.state)
-        } else {
-            console.log("Form is invalid!");
-        }
-    };
-
-
-    formValChange = e => {
-        e.preventDefault();
-        const { name, value } = e.target;
-        let isError = { ...this.state.isError };
-
-        switch (name) {
-         
-            case "email":
-                isError.email = regExp.test(value)
-                    ? ""
-                    : "Email address is invalid";
-                break;
+    return(
+        
+        <>
+       {/* <Naver style={{display:'none'}} test={id}/> */}
+       <div style={{ padding: "40px", backgroundColor: '#4c5595', textAlign: "center" }}>
+                <h1 style={{ color: 'white' }}>Login</h1>
+                <h5>Happy to have you join us </h5>
+            </div>
+        <div className="register-photo" style={{marginTop: '110px'}}>
+          <div className="form-container " > 
+          <div className="image-holder" />
+            <form id='regForm' className="d"  noValidate>
+              <h2 className="text-center">Login</h2>
+               
                 
-            case "password":
-                isError.password =
-                    value.length < 6 ? "Atleast 6 characaters required" : "";
-                break;
-            default:
-                break;
-        }
-
-        this.setState({
-            isError,
-            [name]: value
-        })
-    };
-
-    render() {
-        const { isError } = this.state;
-
-        return (
-
-            
-            <form onSubmit={this.onSubmit} noValidate className="forms">
-
-                            <h1>Login</h1>
-
-                <div id="app">
 
                 <div className="form-group">
-                    <label>Email</label>
+                    <label>Email</label><br></br>
                     <input
                         type="email"
-                        className={isError.email.length > 0 ? "is-invalid form-control" : "form-control"}
                         name="email"
-                        onChange={this.formValChange}
+                        onChange={ emailHandel}
+                        className="form-control"
+                        required
                     />
-
-
-                    {isError.email.length > 0 && (
-                        <span className="invalid-feedback">{isError.email}</span>
-                    )}
+                       <p id="e1" style={{color:'red', display:'none'}}> Invalid email</p>
+                   
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
+                    <label>Password</label><br></br>
                     <input
                         type="password"
-                        className={isError.password.length > 0 ? "is-invalid form-control" : "form-control"}
-                        name="password"
-                        onChange={this.formValChange}
+             
+                        name="pass"
+                        onChange={passHandel}
+                        className="form-control"
+                        required
                     />
-
-
-                    {isError.password.length > 0 && (
-                        <span className="invalid-feedback">{isError.password}</span>
-                    )}
+                    <p id="e2" style={{color:'red', display:'none'}}> Invalid password</p>
+                  
                 </div>
+                <div>
 
-                <button type="submit" className="btn btn-block btn-danger">Login</button>
-
+                <button type="" className="login-btn" style={{backgroundColor: '#fa246a', color:'#fff'}} onClick={handelLog}>Login</button> 
+                
                 </div>
+                
+
             </form>
-        );
-    }
+            
+            </div>
+            </div>
+            
+            </>
+    )
 }
+
+export default Login ;

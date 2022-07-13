@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 
 function Apply() {
 
-
+    const[isSubmit,setSubmit]=useState(false);
     const [profile, setProfile] = useState(1);
     const [pro_type, setPro_type] = useState('test-name');
     const [address, setAddress] = useState('test-email');
@@ -44,16 +44,17 @@ function Apply() {
     const clickHandel = ()=>{
         axios.post('http://localhost/job_hooks/API/insertcv.php?company_id='+company_id+'&profile_type='+pro_type+'&online_profile='+profile+'&postal='+postal+'&state='+state+'&country='+country+'&city='+city+'&address_two='+address2+'&address_one='+address+'&cover_letter='+letter+'&spoken_level='+spoken+'&written_level='+write+'&language='+language+'&user_id='+user_id)
 
-        axios.post('http://localhost/job_hooks/API/insertcv.php?profile='+profile+'&profile_type='+pro_type+'&address='+address+'&address2='+address2+'&city='+city+'&state='+state+'&postal='+postal+'&country='+country+'&letter='+letter+'&written_level='+write+'&spoken_level='+spoken+'&language='+language+'&company_id='+company_id)
+        // axios.post('http://localhost/job_hooks/API/insertcv.php?profile='+profile+'&profile_type='+pro_type+'&address='+address+'&address2='+address2+'&city='+city+'&state='+state+'&postal='+postal+'&country='+country+'&letter='+letter+'&written_level='+write+'&spoken_level='+spoken+'&language='+language+'&company_id='+company_id)
         .then((data) => {
             // console.log('localhost/api-crud/php_crud/update.php?id='+id+'&name='+name+'&email='+email+'&age='+age+'&salary='+salary);
             console.log("success!");
+            setSubmit(!isSubmit)
         })
         .catch((error) => {
             console.error(error);
         });
     }
-    const Background = "https://d341ezm4iqaae0.cloudfront.net/indeedjobs/wp-content/uploads/2020/12/hero-home.svg";
+    // const Background = "https://d341ezm4iqaae0.cloudfront.net/indeedjobs/wp-content/uploads/2020/12/hero-home.svg";
     
     const location = useLocation();
     console.log(location.pathname);
@@ -61,6 +62,10 @@ function Apply() {
     return (
         <>
         {/* <span>Path : {location.pathname}</span> */}
+        <div className='text-center message' style={{ display:isSubmit?"block":"none"}}>
+        <p>Your Information has been reserved successfully</p>
+        </div>
+
             <div style={{ padding: "40px", backgroundColor: '#4c5595', textAlign: "center" }}>
                 <h1 style={{ color: 'white' }}>Candidate Profile</h1>
             </div>

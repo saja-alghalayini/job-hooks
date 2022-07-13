@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import "../css/userinfo.css";
 
 
-function Userinfo() {
+function Userinfo(props) {
     const [user, setUsers] = useState([]);
     useEffect(()=>{
-     axios.get(`http://localhost/job_hooks/API/showUserInfo.php?id=1`)
+     axios.get(`http://localhost/job_hooks/API/showUserInfo.php?id=`)
      .then((res)=>{
-     console.log(res)
+    //  console.log(res)
      const data=res.data;
      setUsers(data);
       
@@ -19,13 +19,25 @@ function Userinfo() {
     
     return (
         <>
-            <div style={{ padding: "40px", backgroundColor: '#4c5595', textAlign: "center" }}>
-                <h1 style={{ color: 'white' }}>Your Profile</h1>
-            </div>
+
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center" 
+            data-background="assets/img/hero/about.jpg">
+              <div class="container">
+                <div class="row">
+              <div class="col-xl-12"><div class="hero-cap text-center">
+                <h2 style={{ padding: "35px", color:'#fff'}}>Your Profile</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+
             {user.map((data)=>
 
 <>
-            <div className="centeruser mb-5">
+            <div className="centeruser mb-5" style={{marginTop:'14%',marginBottom:'60%'}}>
     <div className="containerUser mb-5">
       <div className="left">
         <div className="photo">
@@ -58,7 +70,7 @@ function Userinfo() {
         </div>
       </div>
     </div>
-    </div><br/><br/><br/>
+    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </>
         )}
     </>
