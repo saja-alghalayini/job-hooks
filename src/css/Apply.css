@@ -48,7 +48,11 @@ a{text-decoration: none;}
     padding: 5px 10px;
     margin: 5px 3px;
     margin-bottom: 0px;
+    width: 250px;
 }
+
+.sel-inp{width: 200px;}
+.url-inp{width: 380px;}
 
 .d1{
     width: 25% !important;

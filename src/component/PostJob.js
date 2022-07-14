@@ -12,6 +12,7 @@ function Jobpost() {
     const[isSubmit,setSubmit]=useState(false);
     const [company_name, setCompanyName] = useState("");
     const [job_name, setJobName] = useState("");
+    // const [jobimg, setJobImg] = useState("");
     const [department_name, setDepartmentName] = useState("");
     const [job_type, setJobType] = useState("");
     const [job_location, setJobLocation] = useState("");

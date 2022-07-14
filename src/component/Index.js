@@ -5,6 +5,7 @@ import '../css/index.css';
 
 
 
+
 function Home() {
 
     const [user, setUsers] = useState([]);
@@ -300,74 +301,7 @@ function Home() {
              </div>
         </div>
         {/* How  Apply Process End*/}
-        {/* Testimonial Start */}
-            <h2 className="cent mb-5">Our Client Reviews</h2>
-        <div className="testimonial-area padding">
-            <div className="container mb-5">
-                {/* Testimonial contents */}
-                <div className="row d-flex justify-content-center">
-                    <div className="col-xl-8 col-lg-8 col-md-10">
-                        <div className="h1-testimonial-active dot-style">
-                            {/* Single Testimonial */}
-                            <div className="single-testimonial text-center">
-                                {/* Testimonial Content */}
-                                <div className="testimonial-caption ">
-                                    {/* founder */}
-                                    <div className="testimonial-founder  ">
-                                        <div className="founder-img mb-10">
-                                            <img src="https://avatars.githubusercontent.com/u/100213753?v=4" className="userimg" alt="" />
-                                            <span>Dua-Alsafasfeh</span>
-                                            <p>Communication Engineering</p>
-                                        </div>
-                                    </div>
-                                    <div className="testimonial-top-cap">
-                                        <p>“I was able to get a job through you, you deserve more than a word of thanks. I was able to find many opportunities that fit my abilities and skills.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Single Testimonial */}
-                            <div className="single-testimonial text-center ">
-                                {/* Testimonial Content */}
-                                <div className="testimonial-caption ">
-                                    {/* founder */}
-                                    <div className="testimonial-founder  ">
-                                        <div className="founder-img mb-10">
-                                            <img src="https://avatars.githubusercontent.com/u/100212231?v=4" className="userimg" alt="" />
-                                            <span>Anas Allawafeh</span>
-                                            <p>Communication Engineering</p>
-                                        </div>
-                                    </div>
-                                    <div className="testimonial-top-cap">
-                                        <p>“"I loved everything about job Hooks! This flexible, work from home job has already made my life better!"”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Single Testimonial */}
-                            <div className="single-testimonial text-center">
-                                {/* Testimonial Content */}
-                                <div className="testimonial-caption ">
-                                    {/* founder */}
-                                    <div className="testimonial-founder  ">
-                                        <div className="founder-img mb-10">
-                                            <img src="https://avatars.githubusercontent.com/u/62554357?v=4" className="userimg" alt="" />
-                                            <span>Obada_alshafeey</span>
-                                            <p>Web Devloper</p>
-                                        </div>
-                                    </div>
-                                    <div className="testimonial-top-cap">
-                                        <p>“I was able to get a job through you, you deserve more than a word of thanks. I was able to find many opportunities that fit my abilities and skills.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><br/><br/><br/><br/>
-
-
-
-        </div>
-        {/* Testimonial End */}
+        
          {/* Support Company Start*/}
          <div className="support-company-area support-padding fix mb-5 mt-5">
             <div className="container mb-5">

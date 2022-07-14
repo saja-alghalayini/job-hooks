@@ -16,8 +16,8 @@ function Apply() {
     const [state, setState] = useState(1);
     const [postal, setPostal] = useState('test-name');
     const [country, setCountry] = useState('test-email');
-    const [letter, setLetter] = useState(999);
-    const [resume, setResume] = useState(111);
+    const [letter, setLetter] = useState('Upload File');
+    const [resume, setResume] = useState('Upload File');
     const [language, setLanguage] = useState(1);
     const [write, setWrite] = useState('test-name');
     const [spoken, setSpoken] = useState('test-email');
@@ -44,7 +44,6 @@ function Apply() {
     const clickHandel = ()=>{
         axios.post('http://localhost/job_hooks/API/insertcv.php?company_id='+company_id+'&profile_type='+pro_type+'&online_profile='+profile+'&postal='+postal+'&state='+state+'&country='+country+'&city='+city+'&address_two='+address2+'&address_one='+address+'&cover_letter='+letter+'&spoken_level='+spoken+'&written_level='+write+'&language='+language+'&user_id='+user_id)
 
-        // axios.post('http://localhost/job_hooks/API/insertcv.php?profile='+profile+'&profile_type='+pro_type+'&address='+address+'&address2='+address2+'&city='+city+'&state='+state+'&postal='+postal+'&country='+country+'&letter='+letter+'&written_level='+write+'&spoken_level='+spoken+'&language='+language+'&company_id='+company_id)
         .then((data) => {
             // console.log('localhost/api-crud/php_crud/update.php?id='+id+'&name='+name+'&email='+email+'&age='+age+'&salary='+salary);
             console.log("success!");
@@ -84,12 +83,15 @@ function Apply() {
                 <div className="cBody">
                     <label htmlFor="" className='label2'>Online Profiles (URL)</label>
                     <div>
-                        <input type="text" className='inp' onChange={profileHandel} />
+                        <input type="text" className='inp url-inp' onChange={profileHandel} />
                         <select className='inp' onChange={pro_typeHandel}>
                             <option value="empty" disabled selected>— Make a Selection —</option>
-                            <option value="GetHub">GetHub</option>
+                            <option value="GetHub">GitHub</option>
                             <option value="LinkedIn">LinkedIn</option>
                             <option value="Portfolio">Portfolio</option>
+                            <option value="Portfolio">OneDrive</option>
+                            <option value="Portfolio">GoogleDrive</option>
+                            <option value="Portfolio">DropBox</option>
                         </select>
                     </div>
                 </div>
@@ -138,6 +140,7 @@ function Apply() {
                     <div>
                         <input type="file" className='inp' onChange={letterHandel} id="file1"  />
                         <label htmlFor="file1" className='file'>Chose a file</label>
+                       <span>{letter}</span> 
                     </div>
                 </div>
             </div>
@@ -151,6 +154,7 @@ function Apply() {
                     <div>
                         <input type="file" id="file2" onChange={resumeHandel}  />
                         <label htmlFor="file2" className='file'>Chose a file</label>
+                        <span>{resume}</span>
                     </div>
                 </div>
             </div>
@@ -163,20 +167,23 @@ function Apply() {
                     {/* <label htmlFor="">Language(s)</label> */}
                     <div className="cBody">
                         <div>
-                            <div style={{}}>
+                            <div style={{display: 'flex'}}>
                                 <span className='d1'>
                                     <label htmlFor="" className='label2'>Language</label>
-                                    <select className='inp' onChange={languageHandel}>
+                                    <select className='inp  sel-inp' onChange={languageHandel}>
                                         <option value="empty" disabled selected>— Make a Selection —</option>
                                         <option value="Arabic">Arabic</option>
                                         <option value="English">English</option>
-                                        <option value="French">French</option>
+                                        <option value="French">Spanish</option>
+                                        <option value="French">German</option>
+                                        <option value="French">Turkish</option>
+
                                     </select>
 
                                 </span>
                                 <span className='d1'>
                                     <label htmlFor="" className='label2'>Written Level</label>
-                                    <select className='inp' onChange={writeHandel}>
+                                    <select className='inp sel-inp' onChange={writeHandel}>
                                         <option value="empty" disabled selected>— Make a Selection —</option>
                                         <option value="Native">Native</option>
                                         <option value="Fluent">Fluent</option>
@@ -187,7 +194,7 @@ function Apply() {
                                 </span>
                                 <span className='d1'>
                                     <label htmlFor="" className='label2'>Spoken Level</label>
-                                    <select className='inp' onChange={spokenHandel}>
+                                    <select className='inp sel-inp' onChange={spokenHandel}>
                                         <option value="empty" disabled selected>— Make a Selection —</option>
                                         <option value="Native">Native</option>
                                         <option value="Fluent">Fluent</option>

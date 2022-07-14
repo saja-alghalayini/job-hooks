@@ -53,7 +53,8 @@ bringJobs(jobData);
               <div className="job-items">
                 <div className="company-img company-img-details">
                   <a href="#">
-                    <img src="./css/job-list1.png" height= "85px" width= "85px" alt="" />
+                  <img src={jobs.img} alt="" className='img-size'/>
+                    {/* <img src="../../assets/img/icon/job-list1.png" height= "85px" width= "85px" alt="" /> */}
                   </a>
                 </div>
                 <div className="job-tittle">
@@ -61,7 +62,7 @@ bringJobs(jobData);
                     <h4>{jobs.job_name}</h4>
                   </a>
                   <ul>
-                    <li>{jobs.company_name}</li>
+                    <li style={{marginLeft:'70px'}}>{jobs.company_name}</li>
   
                   </ul>
                 </div>

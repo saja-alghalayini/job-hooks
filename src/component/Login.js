@@ -50,8 +50,6 @@ function Login(){
    
   }
 
-//   console.log(id,"before render" );
-
     return(
         
         <>
