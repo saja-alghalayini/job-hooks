@@ -1,7 +1,11 @@
 <?php
-include_once 'connection.php';
+include_once "./connection.php";
 
-$sql="SELECT * from user";
+$uname=$_REQUEST['uname'];
+$email=$_REQUEST['email'];
+$msg=$_REQUEST['msg'];
+
+$sql="SELECT * FROM comments";
 
 $result=mysqli_query($con,$sql);
 
@@ -16,4 +20,6 @@ for($i=0;$i<mysqli_num_rows($result);$i++){
 echo "]";
 
 
- ?>
+$con->close();
+
+?>
